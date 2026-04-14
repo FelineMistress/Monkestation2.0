@@ -553,14 +553,14 @@
 /obj/item/healthanalyzer/range
 	name = "remote health analyzer"
 	desc = "A hand-held medical scanner for detecting patient's vital signs from a distance. Limited edition from NT medical department."
-	icon = 'monkestation/icons/obj/advanced_device.dmi'
+	icon = 'icons/obj/advanced_device.dmi'
 	icon_state = "health_range"
 	works_from_distance = TRUE
 	custom_premium_price = PAYCHECK_CREW * 6
 
 /obj/item/healthanalyzer/advanced
 	name = "advanced health analyzer"
-	icon = 'monkestation/icons/obj/advanced_device.dmi'
+	icon = 'icons/obj/advanced_device.dmi'
 	icon_state = "health_adv"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject with high accuracy."
 	works_from_distance = TRUE
@@ -609,7 +609,7 @@
 /obj/item/healthanalyzer/cyborg
 	name = "remote health analyzer"
 	desc = "A hand-held medical scanner for detecting patient's vital signs from a distance. Limited edition from NT medical department."
-	icon = 'monkestation/icons/obj/advanced_device.dmi'
+	icon = 'icons/obj/advanced_device.dmi'
 	icon_state = "health_range"
 	works_from_distance = TRUE
 

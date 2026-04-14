@@ -324,7 +324,7 @@
 /obj/item/multitool/tricorder
 	name = "Tricorder"
 	desc = "A multifunctional device that can perform a wide range of tasks. Some functionality can be expanded using highly specialized analyzers."
-	icon = 'monkestation/icons/obj/advanced_device.dmi'
+	icon = 'icons/obj/advanced_device.dmi'
 	icon_state = "tricorder"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
