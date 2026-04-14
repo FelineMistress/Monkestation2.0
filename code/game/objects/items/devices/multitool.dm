@@ -347,7 +347,7 @@
 	if(istype(W, /obj/item/healthanalyzer))
 		if(!medical_tricorder)
 			medical_tricorder = TRUE
-			to_chat(user, span_notice("I connecting improved sensors from the [W] to the tricorder."))
+			to_chat(user, span_notice("I'm connecting the improved sensors from [W] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
@@ -356,7 +356,7 @@
 	if(istype(W, /obj/item/ph_meter))
 		if(!chemical_tricorder)
 			chemical_tricorder = TRUE
-			to_chat(user, span_notice("I connecting improved sensors from the [W] to the tricorder."))
+			to_chat(user, span_notice("I'm connecting the improved sensors from [W] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
