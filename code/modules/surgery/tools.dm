@@ -686,13 +686,13 @@
 		to_chat(user, span_warning("To perform mechanical ventilation, the patient must be unmasked!"))
 		return
 	to_chat(user, span_notice("Applying a breathing mask to [M] face."))
-	if(!do_after(user, 30, user))
+	if(!do_after(user, 3 SECONDS, user))
 		to_chat(user, span_warning("It doesn't work!"))
 		return
 	. = ..()
 	playsound(user,'sound/items/breathing_bag.ogg', 100, TRUE)
 	for(var/ivl in 1 to 15)
-		if(!do_after(user, 10, user))
+		if(!do_after(user, 1 SECONDS, user))
 			return
 		to_chat(user, span_notice("Performing artificial ventilation!"))
 		M.adjustOxyLoss(-15)
