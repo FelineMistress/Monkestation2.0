@@ -378,7 +378,7 @@
 	. += span_notice("Long range sensors [long_range_tricorder ? "<b>are installed.</b>" : "are <b>not</b> installed."]")
 
 /obj/item/multitool/tricorder/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] tries to conduct an in-depth analysis of himself!"))
+	user.visible_message(span_suicide("[user] tries to conduct an in-depth analysis of [user.p_them()]self!"))
 	return BRUTELOSS
 
 /obj/item/multitool/tricorder/attack(mob/living/M, mob/living/user, obj/item/I)
