@@ -347,7 +347,7 @@
 	if(istype(W, /obj/item/healthanalyzer))
 		if(!medical_tricorder)
 			medical_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the improved sensors from the [W] to the tricorder."))
+			to_chat(user, span_notice("You connect the improved sensors from the [W] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
@@ -356,7 +356,7 @@
 	if(istype(W, /obj/item/ph_meter))
 		if(!chemical_tricorder)
 			chemical_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the improved sensors from the [W] to the tricorder."))
+			to_chat(user, span_notice("You connect the improved sensors from the [W] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
@@ -365,7 +365,7 @@
 	if(istype(W, /obj/item/analyzer/ranged))
 		if(!long_range_tricorder)
 			long_range_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the long range sensors from the [W] to the tricorder."))
+			to_chat(user, span_notice("You connect the long range sensors from the [W] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(W)
 		else
@@ -410,7 +410,7 @@
 	if(istype(interacting_with, /obj/item/healthanalyzer))
 		if(!medical_tricorder)
 			medical_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the improved sensors from the [interacting_with] to the tricorder."))
+			to_chat(user, span_notice("You connect the improved sensors from the [interacting_with] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(interacting_with)
 		else
@@ -420,7 +420,7 @@
 	if(istype(interacting_with, /obj/item/ph_meter))
 		if(!chemical_tricorder)
 			chemical_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the improved sensors from the [interacting_with] to the tricorder."))
+			to_chat(user, span_notice("You connect the improved sensors from the [interacting_with] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(interacting_with)
 		else
@@ -430,7 +430,7 @@
 	if(istype(interacting_with, /obj/item/analyzer/ranged))
 		if(!long_range_tricorder)
 			long_range_tricorder = TRUE
-			to_chat(user, span_notice("I'm connecting the long range sensors from the [interacting_with] to the tricorder."))
+			to_chat(user, span_notice("You connect the long range sensors from the [interacting_with] to the tricorder."))
 			playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
 			qdel(interacting_with)
 		else
