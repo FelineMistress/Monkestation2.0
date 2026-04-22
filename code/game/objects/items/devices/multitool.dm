@@ -324,7 +324,7 @@
 /obj/item/multitool/tricorder
 	name = "Tricorder"
 	desc = "A multifunctional device that can perform a wide range of tasks. Some functionality can be expanded using highly specialized analyzers."
-	icon = 'icons/obj/advanced_device.dmi'
+	icon = 'monkestation/icons/obj/advanced_device.dmi'
 	icon_state = "tricorder"
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
@@ -478,7 +478,7 @@
 /obj/item/multitool/tricorder/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
 		if((get_dist(user, interacting_with) > 1) && long_range_tricorder)
-			interacting_with.Beam(user, icon_state = "med_scan", time = 5)
+			interacting_with.Beam(user, icon='icons/effects/beam_advanced.dmi', icon_state = "med_scan", time = 5)
 			playsound(src, 'sound/items/pip.ogg', 25, FALSE, 2)
 		return interact_with_atom(interacting_with, user, modifiers)
 

@@ -631,7 +631,7 @@
 /obj/item/bonesetter/advanced
 	name = "bio-corrector"
 	desc = "The latest medical prototype with a bone gel synthesizer. It sets bones, cleanses blood and lymph. The application of bone gel is possible only with invasive intervention."
-	icon = 'icons/obj/advanced_device.dmi'
+	icon = 'monkestation/icons/obj/advanced_device.dmi'
 	icon_state = "biocorrector"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -670,7 +670,7 @@
 /obj/item/breathing_bag
 	name = "Ambu bag"
 	desc = "Also known as a breathing bag, it is a mechanical manual device for performing artificial lung ventilation."
-	icon = 'icons/obj/advanced_device.dmi'
+	icon = 'monkestation/icons/obj/advanced_device.dmi'
 	icon_state = "breathing_bag"
 	lefthand_file = 'icons/mob/inhands/clothing/masks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/masks_righthand.dmi'
@@ -693,6 +693,9 @@
 	playsound(user,'sound/items/breathing_bag.ogg', 100, TRUE)
 	for(var/ivl in 1 to 15)
 		if(!do_after(user, 1 SECONDS, user))
+			return
+		if(get_dist(user, M) > 1)
+			to_chat(user, span_notice("Where did he go?"))
 			return
 		to_chat(user, span_notice("Performing artificial ventilation!"))
 		M.adjustOxyLoss(-15)

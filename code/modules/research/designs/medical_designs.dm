@@ -470,7 +470,7 @@
 	id = "surgery_tray"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/silver =SHEET_MATERIAL_AMOUNT)
-	build_path = "/obj/item/surgery_tray/craftable"
+	build_path = /obj/item/surgery_tray/craftable
 	category = list(
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL
 	)
