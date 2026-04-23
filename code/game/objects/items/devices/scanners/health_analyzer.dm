@@ -539,7 +539,7 @@
 			if((get_dist(user, interacting_with) > 1) && works_from_distance)
 				interacting_with.Beam(user, icon='icons/effects/beam_advanced.dmi', icon_state = "med_scan", time = 5)
 				playsound(src, 'sound/items/pip.ogg', 25, FALSE, 2)
-			return attack(interacting_with, user)
+				return attack(interacting_with, user)
 
 /obj/item/healthanalyzer/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_see(user, interacting_with, 15))
@@ -547,7 +547,7 @@
 			if((get_dist(user, interacting_with) > 1) && works_from_distance)
 				interacting_with.Beam(user, icon='icons/effects/beam_advanced.dmi', icon_state = "med_scan", time = 5)
 				playsound(src, 'sound/items/pip.ogg', 25, FALSE, 2)
-			return attack_secondary(interacting_with, user, modifiers)
+				return attack_secondary(interacting_with, user, modifiers)
 
 
 /obj/item/healthanalyzer/range
