@@ -342,7 +342,7 @@
 	var/chemical_tricorder = FALSE		// if TRUE tricorder can work as chemical scaner, but cutted version
 	var/long_range_tricorder = FALSE	// if TRUE tricorder can work as long range gas analyzer
 
-// Upgrades V1
+////////// Upgrades V1 //////////
 /obj/item/multitool/tricorder/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/healthanalyzer))
 		if(!medical_tricorder)
@@ -406,7 +406,7 @@
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/item/multitool/tricorder/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	// Upgrades V2
+////////// Upgrades V2 //////////
 	if(istype(interacting_with, /obj/item/healthanalyzer))
 		if(!medical_tricorder)
 			medical_tricorder = TRUE
@@ -437,15 +437,22 @@
 			to_chat(user, span_warning("This modification has already been installed here."))
 		return ITEM_INTERACT_SUCCESS
 
-	// Anomaly scan
+////////// Prevent scan //////////
+	// TCOMs
+	if(istype(interacting_with, /obj/machinery/telecomms) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
+		return
+	// Human
+	if(istype(interacting_with, /mob/living) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
+		if((get_dist(user, interacting_with) > 1) && long_range_tricorder)
+			atmos_scan(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
+		return
+
+////////// Scan //////////
+	// Anomaly
 	if(istype(interacting_with, /obj/effect/anomaly) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
 		var/obj/effect/anomaly/anomaly = interacting_with
 		anomaly.analyzer_act(user, src)
 		return ITEM_INTERACT_SUCCESS
-
-	// TCOMs scan. Prevent the tricorder's air analysis when trying to configure tcomms
-	if(istype(interacting_with, /obj/machinery/telecomms) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
-		return
 
 	// Chem scan item
 	if (chemical_tricorder)
@@ -474,17 +481,13 @@
 		atmos_scan(user, (interacting_with.return_analyzable_air() ? interacting_with : get_turf(interacting_with)))
 	return NONE
 
-	// Long range
+////////// Long range scan //////////
 /obj/item/multitool/tricorder/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!HAS_TRAIT(interacting_with, TRAIT_COMBAT_MODE_SKIP_INTERACTION) && can_see(user, interacting_with, long_range_tricorder? 15 : 1))
 		if((get_dist(user, interacting_with) > 1) && long_range_tricorder)
 			interacting_with.Beam(user, icon='icons/effects/beam_advanced.dmi', icon_state = "med_scan", time = 5)
 			playsound(src, 'sound/items/pip.ogg', 25, FALSE, 2)
 		return interact_with_atom(interacting_with, user, modifiers)
-
-	// Atmos scan 2
-/obj/item/multitool/tricorder/attack_self(mob/user)
-	atmos_scan(user=user, target=get_turf(src), silent=FALSE)
 
 	//If medical_tricorder is set to FALSE then the tricorder will not be as effective as a regular medical scanner
 /obj/item/proc/lesserhealthscan(mob/user, mob/living/M)

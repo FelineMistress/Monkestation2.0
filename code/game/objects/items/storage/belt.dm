@@ -349,7 +349,7 @@
 	SSwardrobe.provide_type(/obj/item/pinpointer/crew, src)
 	SSwardrobe.provide_type(/obj/item/scalpel/advanced, src)
 	SSwardrobe.provide_type(/obj/item/retractor/advanced, src)
-	SSwardrobe.provide_type(/obj/item/bonesetter/advanced, src)
+	SSwardrobe.provide_type(/obj/item/blood_filter/advanced, src)
 	SSwardrobe.provide_type(/obj/item/cautery/advanced, src)
 	SSwardrobe.provide_type(/obj/item/surgical_drapes, src)
 	update_appearance()
@@ -360,7 +360,7 @@
 	to_preload += /obj/item/pinpointer/crew
 	to_preload += /obj/item/scalpel/advanced
 	to_preload += /obj/item/retractor/advanced
-	to_preload += /obj/item/bonesetter/advanced
+	to_preload += /obj/item/blood_filter/advanced
 	to_preload += /obj/item/cautery/advanced
 	to_preload += /obj/item/surgical_drapes
 	return to_preload

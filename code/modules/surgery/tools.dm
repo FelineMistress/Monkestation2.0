@@ -588,6 +588,13 @@
 /obj/item/blood_filter/get_surgery_tool_overlay(tray_extended)
 	return "filter"
 
+/obj/item/blood_filter/click_alt(mob/living/user)
+	ui_interact(user)
+
+/obj/item/blood_filter/examine()
+	. = ..()
+	. += span_notice("There is a small <b>\"Alt-click\"</b> button here, which is responsible for setting up the filtering list exceptions.")
+
 /obj/item/blood_filter/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -628,7 +635,7 @@
 			blacklist -= chem_id
 
 // Biocorrector
-/obj/item/bonesetter/advanced
+/obj/item/blood_filter/advanced
 	name = "bio-corrector"
 	desc = "The latest medical prototype with a bone gel synthesizer. It sets bones, cleanses blood and lymph. The application of bone gel is possible only with invasive intervention."
 	icon = 'monkestation/icons/obj/advanced_device.dmi'
@@ -639,10 +646,10 @@
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3)
 	toolspeed = 0.7
 
-/obj/item/bonesetter/advanced/get_all_tool_behaviours()
-	return list(TOOL_BONESET, TOOL_BLOODFILTER)
+/obj/item/blood_filter/advanced/get_all_tool_behaviours()
+	return list(TOOL_BLOODFILTER, TOOL_BONESET)
 
-/obj/item/bonesetter/advanced/Initialize(mapload)
+/obj/item/blood_filter/advanced/Initialize(mapload)
 	. = ..()
 	AddComponent( \
 		/datum/component/transforming, \
@@ -654,14 +661,14 @@
 	)
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 
-/obj/item/bonesetter/advanced/examine()
+/obj/item/blood_filter/advanced/examine()
 	. = ..()
-	. += "<hr>The device is ready for [tool_behaviour == TOOL_BLOODFILTER ? "blood filtration" : "bone manipulation"]."
+	. += span_notice("The device is ready for <b>[tool_behaviour == TOOL_BLOODFILTER ? "blood filtration" : "bone manipulation"]</b>.")
 
-/obj/item/bonesetter/advanced/proc/on_transform(obj/item/source, mob/user, active)
+/obj/item/blood_filter/advanced/proc/on_transform(obj/item/source, mob/user, active)
 	SIGNAL_HANDLER
 
-	tool_behaviour = (active ? TOOL_BLOODFILTER : TOOL_BONESET)
+	tool_behaviour = (active ? TOOL_BONESET : TOOL_BLOODFILTER)
 	balloon_alert(user, "rebuilt to [active ? "blood filtration" : "bone manipulation"]")
 	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE

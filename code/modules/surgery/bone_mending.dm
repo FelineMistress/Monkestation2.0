@@ -157,7 +157,7 @@
 #define IMPLEMENTS_THAT_FIX_BONES list( \
 	/obj/item/stack/medical/bone_gel = 100, \
 	/obj/item/stack/sticky_tape/surgical = 100, \
-	/obj/item/bonesetter/advanced = 100, \
+	/obj/item/blood_filter/advanced = 100, \
 	/obj/item/stack/sticky_tape/super = 50, \
 	/obj/item/stack/sticky_tape = 30, \
 )

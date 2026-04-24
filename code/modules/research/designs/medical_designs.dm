@@ -355,7 +355,7 @@
 	name = "Bio-corrector"
 	desc = "The latest medical prototype with a bone gel synthesizer. It sets bones, cleanses blood and lymph. The application of bone gel is possible only with invasive intervention."
 	id = "biocorrector"
-	build_path = /obj/item/bonesetter/advanced
+	build_path = /obj/item/blood_filter/advanced
 	build_type = PROTOLATHE | AWAY_LATHE | COLONY_FABRICATOR
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 4, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 2, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3)
 	category = list(
