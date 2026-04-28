@@ -669,7 +669,7 @@
 	SIGNAL_HANDLER
 
 	tool_behaviour = (active ? TOOL_BONESET : TOOL_BLOODFILTER)
-	balloon_alert(user, "rebuilt to [active ? "blood filtration" : "bone manipulation"]")
+	balloon_alert(user, "rebuilt to [active ? "bone manipulation" : "blood filtration"]")
 	playsound(user ? user : src, 'sound/items/change_drill.ogg', 50, TRUE)
 	return COMPONENT_NO_DEFAULT_MESSAGE
 

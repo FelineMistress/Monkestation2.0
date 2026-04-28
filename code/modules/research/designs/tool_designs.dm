@@ -53,7 +53,7 @@
 
 /datum/design/tricorder
 	name = "Tricorder"
-	desc = "A multifunctional device that can perform a wide range of tasks.."
+	desc = "A multifunctional device that can perform a wide range of tasks."
 	id = "tricorder"
 	build_type = PROTOLATHE | AWAY_LATHE | COLONY_FABRICATOR
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.5, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 3, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 3)
